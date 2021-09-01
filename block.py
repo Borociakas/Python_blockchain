@@ -50,5 +50,9 @@ def main():
     print(block)
 
 
+def doSomething():
+    print("Labas")
+
+
 if __name__ == '__main__':
     main()
