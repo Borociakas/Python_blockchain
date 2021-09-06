@@ -49,6 +49,11 @@ class Blockchain:
             last_block = chain[i-1]
             Block.is_valid_block(last_block, block)
 
+    def to_json(self):
+        """
+        Serialize the blockchain into a list of blocks.
+        """
+        return list(map(lambda block: block.to_json(), self.chain))
 
 def main():
     blockchain = Blockchain()
