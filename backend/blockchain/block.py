@@ -128,27 +128,3 @@ class Block:
 
         if block.hash != reconstructed_hash:
             raise Exception('The block hash must be correct')
-
-
-def main():
-    # genesis_block = Block.genesis()
-    # block = Block.mine_block(genesis_block, 'foo')
-    # print(block)
-
-    genesis_block = Block.genesis()
-
-    bad_block = Block.mine_block(Block.genesis(), 'foo')
-    # bad_block.last_hash = 'blablabla'
-
-    try:
-        Block.is_valid_block(genesis_block, bad_block)
-    except Exception as e:
-        print(f'is_valid_block: {e}')
-
-
-def doSomething():
-    print("Labas")
-
-
-if __name__ == '__main__':
-    main()
