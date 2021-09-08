@@ -51,8 +51,5 @@ def main():
     should_be_valid = Wallet.verify(wallet.public_key, data, signature)
     print(f'shouldbevalid: {should_be_valid}')
 
-    should_be_invalid = Wallet.verify(wallet.public_key, 'labas', signature)
-    print(f'shouldbeInvalid: {should_be_invalid}')
-
 if __name__ == '__main__':
     main()
