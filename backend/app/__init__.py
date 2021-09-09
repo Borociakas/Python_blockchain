@@ -29,6 +29,17 @@ def route_default():
 def route_blockchain():
     return jsonify(blockchain.to_json())
 
+@app.route('/blockchain/range')
+def route_blockchain_range():
+    start = int(request.args.get('start'))
+    end = int(request.args.get('end'))
+
+    return jsonify(blockchain.to_json()[::-1][start:end])
+
+@app.route('/blockchain/lenght')
+def route_blockchain_lenght():
+    return jsonify(len(blockchain.chain))
+
 @app.route('/blockchain/mine')
 def route_blockchain_mine():
     transaction_data = transaction_pool.transaction_data()
@@ -73,7 +84,14 @@ PORT = ROOT_PORT
 commandLineArgs = sys.argv[1:]
 
 if(len(commandLineArgs) > 0):
-    PORT = commandLineArgs[0]
+    if(commandLineArgs[0] == "fill"):
+        for i in range(15):
+            blockchain.add_block([
+                Transaction(Wallet(), Wallet().address, random.randint(2, 50)).to_json(),
+                Transaction(Wallet(), Wallet().address, random.randint(2, 50)).to_json()
+            ])
+    else:    
+        PORT = commandLineArgs[0]
 
 app.run(port=PORT)
 
