@@ -1,0 +1,7 @@
+const API_BASE_URL = 'http://localhost:5000';
+
+const NANOSECONDS_PY = 1;
+const MICROECONDS_PY = 1000 * NANOSECONDS_PY;
+const MILISECONDS_PY = 1000 * MICROECONDS_PY;
+
+export { API_BASE_URL, MILISECONDS_PY };
