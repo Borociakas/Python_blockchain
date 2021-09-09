@@ -21,7 +21,10 @@ function App() {
       <br />
       <Link to="/blockchain">Blockchain</Link>
       <Link to="/conduct-transaction">Conduct a Transaction</Link>
+      <Link to="/transaction-pool">Transaction Pool</Link>
       <div className="WalletInfo">
+        <br />
+        <h3>Cryptocurrency wallet</h3>
         <div>Address: {address}</div>
         <div>Balance: {balance}</div>
       </div>
